@@ -6,18 +6,6 @@ import javax.inject.Inject
 class RemoteRepository @Inject constructor(
     private val service: InterviewAwairService
 ) {
-    suspend fun networkTest(): Result<EventResponse> {
-        return try {
-            val response: EventResponse = service.event()
-            if (response.events.isNullOrEmpty()) {
-                Result.Success(response)
-            } else {
-                Result.Error(Exception("Server error"))
-            }
-        } catch (e: Exception) {
-            Result.Error(e)
-        }
-    }
 
     suspend fun event(nextToken: String?): Result<EventResponse> {
         return try {

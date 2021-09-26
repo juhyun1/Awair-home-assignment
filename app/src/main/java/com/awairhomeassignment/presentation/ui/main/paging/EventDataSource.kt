@@ -25,20 +25,19 @@ class EventDataSource(
         when(val result = repository.event(nextToken)) {
             is Result.Success -> {
                 val nextPageNumber = params.key ?: 0
-
-                result.data!!.events.forEach {
-                    Timber.d(it.toString())
-                }
-                nextToken = result.data.next_page_token
+                nextToken = result.data!!.next_page_token
 
                 Timber.d("Next Token : $nextToken")
+                // Convert event dtos into domain models.
                 val list =  mapper.toDomainList(result.data.events)
 
                 return LoadResult.Page(
+                    // Sort by start time.
                     data = list.sortedWith { o1, o2 ->
                         o1.start.compareTo(o2.start)
                     },
                     prevKey = if (nextPageNumber > 0) nextPageNumber - 1 else null,
+                    //If nextToken is null, no more data is requested.
                     nextKey = if (nextToken.isNullOrEmpty()) null else nextPageNumber + 1
                 )
             }

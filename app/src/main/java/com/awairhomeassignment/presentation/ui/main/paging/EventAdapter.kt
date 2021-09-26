@@ -32,6 +32,7 @@ class EventAdapter : PagingDataAdapter<Event, EventAdapter.ViewHolder>(diffCallb
 
     lateinit var onItemClick: (Event) -> Unit
 
+    // Call the click function injected from the outside together with the event.
     private fun onClick(position: Int) {
         if (::onItemClick.isInitialized) {
             val item = getItem(position)

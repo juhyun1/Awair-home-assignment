@@ -16,6 +16,7 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class EventDetailsFragment : Fragment() {
 
+    //A viewmodel shared between each fragment.
     private val sharedViewModel: SharedViewModel by activityViewModels()
     private var _binding: EventDetailsFragmentBinding? = null
     private val binding get() = _binding!!
@@ -42,6 +43,8 @@ class EventDetailsFragment : Fragment() {
 
     private fun initAdapter() {
 
+        //Define the click event as a lambda function.
+        //When an event is selected, details about the event are displayed.
         overlapEventAdapter.onItemClick = {
             try {
                 val action = EventDetailsFragmentDirections.actionEventDetailsFragmentToEventDetailsFragment(event = it)
@@ -56,6 +59,7 @@ class EventDetailsFragment : Fragment() {
 
     private fun initObserve() {
 
+        //When an overlapping event is delivered, it is displayed in the recyclerview.
         sharedViewModel.overlapList.observe(requireActivity()) {
             if (!it.isNullOrEmpty()) {
                 binding.overlap.visibility = View.VISIBLE

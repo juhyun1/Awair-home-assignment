@@ -33,7 +33,6 @@ class OverlapEventAdapter : RecyclerView.Adapter<OverlapEventAdapter.ViewHolder>
         }
     }
 
-    // Replace the contents of a view (invoked by the layout manager)
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         with(viewHolder.itemView) {
             setOnClickListener {

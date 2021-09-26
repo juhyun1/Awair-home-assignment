@@ -11,8 +11,10 @@ import javax.inject.Inject
 @HiltViewModel
 class SharedViewModel @Inject constructor(): ViewModel() {
 
+    //Deliver overlapping events.
     val overlapList = MutableLiveData<List<Event>>()
 
+    //Check if events overlap,
     fun checkEventOverlap(event: Event, list: List<Event>) {
 
         viewModelScope.launch {
@@ -24,9 +26,12 @@ class SharedViewModel @Inject constructor(): ViewModel() {
 
             for (item in sorted) {
 
+                //The same event is ignored.
                 if (event == item ) {
                     continue
                 }
+
+                //Events later than the end time of the event are not compared.
                 if (event.end.isBefore(item.start)) {
                     break
                 }

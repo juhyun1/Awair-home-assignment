@@ -22,9 +22,8 @@ class EventDtoMapper : DomainMapper<EventDto, Event> {
 
     override fun mapToDomainModel(model: EventDto): Event {
 
-        Timber.d("Start ${model.start}")
+        //Convert to LocalDateTime to compare and sort dates.
         val start : LocalDateTime = LocalDateTime.parse(model.start, dateTimeFormatter)
-        Timber.d("End ${model.end}")
         val end : LocalDateTime = LocalDateTime.parse(model.end, dateTimeFormatter)
 
         return Event(

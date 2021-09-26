@@ -56,6 +56,8 @@ class MainFragment : Fragment() {
             }
         }
 
+        //Handles http errors that occur on the server.
+        //If an error occurs more than 50 times, no more data requests are attempted.
         eventAdapter.addLoadStateListener { combinedLoadStates ->
             if (errorCount < 50) {
                 var error = combinedLoadStates.refresh is LoadState.Error
@@ -78,6 +80,7 @@ class MainFragment : Fragment() {
     }
 
     private fun initObserve() {
+        //When the next page data is passed through the pager, it is put into the adapter.
         lifecycleScope.launch {
             viewModel.eventPager.collectLatest { pagedData ->
                 eventAdapter.submitData(pagedData)

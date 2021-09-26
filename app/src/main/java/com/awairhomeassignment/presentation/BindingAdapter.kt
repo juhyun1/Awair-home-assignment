@@ -5,19 +5,21 @@ import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import com.awairhomeassignment.R
 import com.awairhomeassignment.domain.model.Event
-import timber.log.Timber
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import java.util.*
 
 private val dateTimeFormatter: DateTimeFormatter = DateTimeFormatter.ofPattern("MMMM d, yyyy h:mm a", Locale.US)
 
+
+//Converts a date in LocalDateTime to a specified pattern.
 @BindingAdapter("date")
 fun setDate(view: TextView, date: LocalDateTime) {
     val str = date.format(dateTimeFormatter)
     view.text = str
 }
 
+//It handles even the case where there is no title.
 @BindingAdapter("title")
 fun setDate(view: TextView, title: String?) {
     if (title.isNullOrEmpty()) {
@@ -27,6 +29,7 @@ fun setDate(view: TextView, title: String?) {
     }
 }
 
+//It handles with the case where the end time is earlier than the start time.
 @BindingAdapter("check_date")
 fun checkDate(view: TextView, event: Event) {
 

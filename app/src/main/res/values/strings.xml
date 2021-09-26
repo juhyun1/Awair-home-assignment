@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Awair home assignment</string>
+
+    <string name="event_main">Event List</string>
+    <string name="no_title">No Title</string>
+    <string name="no_event_details">Event Details</string>
+
+    <string name="event_details_title">Title : </string>
+    <string name="event_details_start_date">Start Date : </string>
+    <string name="event_details_end_date">End date : </string>
+    <string name="event_details_date_error">ERROR: End date is earlier than start date.</string>
+    <string name="event_details_overlap">There are Events that overlap in time.</string>
+
+</resources>

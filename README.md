@@ -1,21 +1,15 @@
 # Awair-home-assignment
 
-# movieviewer
-
 # Summary
 The code is written in android studio 4.2.
 Clone the code from git and compile it.
  
-
-
 # Program Structure
 ## Presentation Layer 
 - **presentation**
 
-
 ## Data Layer 
 - **repository**
-
 
 ## Domain Layer 
 - **domain**
@@ -26,7 +20,6 @@ Clone the code from git and compile it.
 - **Navigation**
 - **Hilt** 
 - **Paging** 
-
 
 ## Open Source Library
 

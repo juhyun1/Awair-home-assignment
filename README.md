@@ -1,12 +1,14 @@
 # Awair-home-assignment
 
-# 개요
+# movieviewer
+
+# Summary
 The code is written in android studio 4.2.
 Clone the code from git and compile it.
  
 
 
-# 프로그램 구조 
+# Program Structure
 ## Presentation Layer 
 - **presentation**
 
@@ -18,14 +20,14 @@ Clone the code from git and compile it.
 ## Domain Layer 
 - **domain**
 
-# 사용 라이브러리 
+# Library to use
 
-## Jetpack 라이브러리 
+## Jetpack Library 
 - **Navigation**
 - **Hilt** 
 - **Paging** 
 
 
-## 오픈소스 라이브러리
+## Open Source Library
 
 - **Retrofit2** 
